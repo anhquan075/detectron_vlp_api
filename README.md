@@ -10,7 +10,7 @@ bash download_weights.sh
 ## Docker
 Build docker image:
 ```
-docker build -t . <image_name>:<image_tag>
+docker build . -t <image_name>:<image_tag>
 ```
 Run docker container:
 ```
