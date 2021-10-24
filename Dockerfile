@@ -1,7 +1,7 @@
 FROM nvidia/cuda:10.1-cudnn7-devel-ubuntu18.04
 
 RUN apt-get update && \
-    apt install --no-install-recommends -y build-essential software-properties-common git && \
+    apt install --no-install-recommends -y build-essential software-properties-common git python3-pip libssl-dev && \
     add-apt-repository -y ppa:deadsnakes/ppa && \
     apt install --no-install-recommends -y python3.7 python3.7-dev python3.7-distutils && \
     apt clean && rm -rf /var/lib/apt/lists/*
@@ -10,6 +10,7 @@ RUN apt-get update && \
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
 RUN python3 -m pip install --upgrade pip
+RUN pip3 install setuptools
 
 WORKDIR /workingspace
 
